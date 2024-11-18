@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>달력 생성기</title>
+        <style>
+            body {
+                text-align: center;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+            }
+            .input-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+                gap: 10px;
+            }
+            input[type="number"] {
+                padding: 8px 15px;
+                border: 2px solid #dee2e6;
+                border-radius: 5px;
+                font-size: 16px;
+                width: 100px;
+            }
+            button {
+                padding: 8px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            table {
+                border-collapse: collapse;
+                margin: 20px auto;
+                background-color: #f8f9fa;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            th, td {
+                padding: 15px;
+                border: 1px solid #dee2e6;
+                text-align: center;
+            }
+            th {
+                background-color: #007bff;
+                color: white;
+            }
+            td {
+                min-width: 40px;
+            }
+            .sunday {
+                color: red;
+            }
+            .saturday {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>달력 생성기</h1>
+        <div class="input-container">
+            <input type="number" id="year" placeholder="년도">
+            <input type="number" id="month" placeholder="월" min="1" max="12">
+            <button onclick="generateCalendar()">달력 생성</button>
+        </div>
+        <div id="calendar"></div>
+    
+        <script>
+            function generateCalendar() {
+                const year = parseInt(document.getElementById('year').value);
+                const month = parseInt(document.getElementById('month').value);
+    
+                if (!year || !month || month < 1 || month > 12) {
+                    alert('올바른 년도와 월을 입력해주세요.');
+                    return;
+                }
+    
+                // 해당 월의 첫 날과 마지막 날 구하기
+                const firstDay = new Date(year, month - 1, 1);
+                const lastDay = new Date(year, month, 0);
+                const firstDayOfWeek = firstDay.getDay();
+                const lastDate = lastDay.getDate();
+    
+                // 달력 테이블 생성
+                let calendarHTML = `<table>
+                    <tr>
+                        <th class="sunday">일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th class="saturday">토</th>
+                    </tr><tr>`;
+    
+                // 첫 주 빈 칸 채우기
+                for (let i = 0; i < firstDayOfWeek; i++) {
+                    calendarHTML += '<td></td>';
+                }
+    
+                // 날짜 채우기
+                let currentDay = firstDayOfWeek;
+                for (let day = 1; day <= lastDate; day++) {
+                    const dayClass = currentDay === 0 ? 'sunday' : 
+                                   currentDay === 6 ? 'saturday' : '';
+                    calendarHTML += `<td class="${dayClass}">${day}</td>`;
+                    
+                    currentDay++;
+                    if (currentDay === 7) {
+                        calendarHTML += '</tr><tr>';
+                        currentDay = 0;
+                    }
+                }
+    
+                // 마지막 주 빈 칸 채우기
+                while (currentDay !== 0 && currentDay < 7) {
+                    calendarHTML += '<td></td>';
+                    currentDay++;
+                }
+    
+                calendarHTML += '</tr></table>';
+                document.getElementById('calendar').innerHTML = calendarHTML;
+            }
+        </script>
+    </body>
+    </html>
+</body>
+</html>
