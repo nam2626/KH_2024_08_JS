@@ -5,27 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>function</title>
     <style>
-        table{
-            border-collapse: collapse;
+        body {
+            text-align: center;
+            padding: 20px;
         }
-        td{
-            padding:30px;
-            border:1px solid black;
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #f8f9fa;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        td {
+            padding: 15px 20px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #495057;
+            border-radius: 5px;
+            background: white;
+            min-width: 45px;
+        }
+        input[type="text"] {
+            padding: 8px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #area {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="txt">
-    <button id="btn" onclick="generateLotto()">로또번호 생성</button>
+    <div class="input-container">
+        <input type="text" id="txt">
+        <button id="btn" onclick="generateLotto()">로또번호 생성</button>
+    </div>
     <hr>
     <div id="area"></div>
     <script>
       function generateLotto(){
         //1. txt에서 로또 셋트 개수 읽어옴
-
+        const count = parseInt(document.getElementById("txt").value) || 1;
+        
         //2. 표로 로또번호 출력할 태그를 문자열로 만듬
-
+        let tableHTML = "<table>";
+        
+        for(let i = 0; i < count; i++) {
+            // 로또 번호 생성 (1~45 사이의 중복되지 않는 6개 숫자)
+            const numbers = [];
+            while(numbers.length < 6) {
+                const num = Math.floor(Math.random() * 45) + 1;
+                if(!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            // 오름차순 정렬
+            numbers.sort((a, b) => a - b);
+            
+            // 표에 번호 추가
+            tableHTML += "<tr>";
+            for(let num of numbers) {
+                tableHTML += `<td>${num}</td>`;
+            }
+            tableHTML += "</tr>";
+        }
+        
+        tableHTML += "</table>";
+        
         //3. area 에 2번에서 만든 문자열을 innerHTML에 저장해서 화면에 로또번호 출력
+        document.getElementById("area").innerHTML = tableHTML;
       }
     </script>
 </body>
