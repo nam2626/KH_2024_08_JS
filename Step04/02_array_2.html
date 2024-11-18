@@ -35,7 +35,16 @@
         document.write(`filter 결과 : ${result}`,'<br>');
 
         //배열 요소 삭제
-        
+        arr.pop(); //마지막에 있는 요소만 삭제
+        document.write(`pop 결과: ${arr}<br>`);
+        //1번 인덱스부터 3번 인덱스 전까지 추출
+        document.write(`${arr.slice(1,3)}<br>`);
+        //slice는 기존 배열 변경이 없음
+        document.write(`slice 실행 후 arr: ${arr}<br>`);
+        //1번 인덱스부터 요소 3개 추출
+        document.write(`${arr.splice(1,3)}<br>`);
+        //배열 일부를 추출해서 기존 배열에 변경이 있다.
+        document.write(`splice 실행 후 arr: ${arr}<br>`);
 
     </script>
 </head>
