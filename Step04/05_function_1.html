@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>함수</title>
     <script>
+        //함수를 선언해서 작성을 하면, 호이스팅으로 미리 메모리에 등록하는 작업이 이루어짐
+        //그래서 선언 순서와 상관 없이 함수 호출이 가능함.
+        console.log(sum(10,20));
+
+       //undefined : 값이 없다.
+       //null : 데이터가 빈값이다.
+       function sum(a, b){
+            if(b == undefined) return;
+            // console.log(a,b);
+            return a + b;
+       }
+       console.log(sum(10,20));
        
+       //return이 없으면 결과값은? 값은 받은 적이 없으니까 undefined가 저장
+       console.log(sum(10));
     </script>
 </head>
 <body>
