@@ -52,7 +52,19 @@
             //글자색 흰색으로 변경
             tag.style.color = '#FFFFFF';
         }
-        
+
+        //input 태그 전부 선택
+        //입력된 값을 삭제, 배경색을 전부 빨강색 처리
+        //읽기 전용으로 처리, 데이터 입력을 막음
+        let input = document.querySelectorAll('input');
+
+        for(tag of input){
+            tag.value = '';
+            tag.style.backgroundColor = 'red';
+            console.log(tag.readOnly)
+            tag.readOnly = true;
+        }
+
     </script>
 </body>
 </html>
