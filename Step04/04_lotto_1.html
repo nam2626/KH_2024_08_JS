@@ -32,8 +32,8 @@
             while(arr.length < 6){
                 let n = Math.floor(Math.random() * 45) + 1;
                 if(arr.indexOf(n) == -1)
-                // if(!(n in arr))
                     arr.push(n);
+                console.log(!(n in arr), n, arr)
             }
             console.log(arr);
             lotto.push(arr);
@@ -44,11 +44,10 @@
         let tag = '';
         for(arr of lotto){
             console.log(arr);
-            tag += '<tr>';
-            for(n of arr){
-                tag += `<td>${n}</td>`;
-            }
-            tag += '</tr>';
+            tag += `<tr><td>${arr.join('</td><td>')}</td></tr>`;
+            // tag += '<tr>';
+            // arr.forEach((val) => tag += `<td>${val}</td>`);
+            // tag += '</tr>';
         }
         tag = `<table>${tag}</table>`;
         console.log(tag);
