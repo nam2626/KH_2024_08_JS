@@ -21,7 +21,20 @@
         console.log(arr);
         //데이터 전체 출력
         document.write(`<p>${arr}</p>`);
+        //배열에 저장된 요소를 검색
+        document.write(`${arr.indexOf('Hello')}<br>`);
+        document.write(`${arr.indexOf(200)}<br>`);
+        //값이 30보다 작은 배열의 요소값을 검색해서 해당 인덱스 번호 출력
+        for(i=0;i<arr.length;i++){
+            if(arr[i] < 30)
+                document.write(i,' ');
+        }
+        document.write('<br>');
+        let result = arr.filter((value, index, ary) => value < 30);
+        console.log(result);
+        document.write(`filter 결과 : ${result}`,'<br>');
 
+        //배열 요소 삭제
         
 
     </script>
