@@ -31,8 +31,8 @@
             let arr = [];
             while(arr.length < 6){
                 let n = Math.floor(Math.random() * 45) + 1;
-                // if(arr.indexOf(n) == -1)
-                if(!(n in arr))
+                if(arr.indexOf(n) == -1)
+                // if(!(n in arr))
                     arr.push(n);
             }
             console.log(arr);
@@ -41,7 +41,18 @@
         console.log(lotto);
         //---------------------------------------
         //반복문 중첩을 이용해서 표로 만든 후 출력
-        
+        let tag = '';
+        for(arr of lotto){
+            console.log(arr);
+            tag += '<tr>';
+            for(n of arr){
+                tag += `<td>${n}</td>`;
+            }
+            tag += '</tr>';
+        }
+        tag = `<table>${tag}</table>`;
+        console.log(tag);
+        document.write(tag);
     </script>
 </head>
 
