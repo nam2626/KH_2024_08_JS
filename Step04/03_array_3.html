@@ -5,7 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배열</title>
     <script>
-      
+      //배열 두개 생성
+      const arr1 = [1,2,3,4,5];
+      const arr2 = [6,7,8,9,10];
+
+      //arr1, arr2를 하나의 배열로 합치기
+      const arr3 = arr1.concat(arr2);
+      console.log(arr3);
+      console.log(arr1,arr2);
+
+      const arr4 = [...arr1,...arr2];
+      console.log(arr4);
+      console.log(arr1,arr2);
+
+      //배열의 내용을 하나의 문자열로 합치기, 특정 문자로 구분 --> 대표적으로 csv 형태 파일
+      let str =  arr3.join('&');
+      console.log(str);
+
+      //문자열의 내용을 특정 문자로 자르기, 자른 결과는 배열로 리턴
+      let arr5 = str.split('&');
+      console.log(arr5);
+
+
+
     </script>
 </head>
 <body>
