@@ -1,0 +1,62 @@
+.calendar-container {
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input {
+    padding: 8px;
+    margin: 0 5px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    height: 40px;
+}
+
+.today {
+    background-color: #e6ffe6;
+    font-weight: bold;
+}
+
+.other-month {
+    color: #ccc;
+}
+
+.weekend {
+    color: red;
+}

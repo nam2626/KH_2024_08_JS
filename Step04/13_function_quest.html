@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력 출력하기</title>
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="input-container">
+            <input type="number" id="year" placeholder="년도 입력" min="1900" max="2100">
+            <input type="number" id="month" placeholder="월 입력" min="1" max="12">
+            <button onclick="showCalendar()">달력 보기</button>
+        </div>
+        <div id="calendar"></div>
+    </div>
+
+    <script src="js/calendar.js"></script>
+</body>
+</html>
