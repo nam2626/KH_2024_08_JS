@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>함수</title>
     <script>
-       
+        //default parameter : 매개변수에 기본값 지정, 값이 안들어 오면 해당 값이 초기화됨
+        //주의 할점은 마지막 매개변수부터 기본값 지정, 중간에 기본값 지정 안하면 안됨, 매개변수에 값을 채우는건 맨 앞에서부터 채움.
+       function sum(a=0,b=0){
+        return a + b;
+       }
+
+       document.write(`<p>${sum()}</p>`);
+       document.write(`<p>${sum(10)}</p>`);
+       document.write(`<p>${sum(10,20)}</p>`);
+
     </script>
 </head>
 <body>
