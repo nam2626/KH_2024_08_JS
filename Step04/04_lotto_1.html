@@ -25,7 +25,23 @@
         }
     </style>
     <script>
-       
+        //로또 번호 5셋트를 화면에 표를 이용해서 출력
+        let lotto = [];
+        while(lotto.length < 5){
+            let arr = [];
+            while(arr.length < 6){
+                let n = Math.floor(Math.random() * 45) + 1;
+                // if(arr.indexOf(n) == -1)
+                if(!(n in arr))
+                    arr.push(n);
+            }
+            console.log(arr);
+            lotto.push(arr);
+        }
+        console.log(lotto);
+        //---------------------------------------
+        //반복문 중첩을 이용해서 표로 만든 후 출력
+        
     </script>
 </head>
 
