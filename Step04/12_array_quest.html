@@ -20,7 +20,34 @@
     <hr>
     <div id="area"></div>
     <script>
-      
+        let btn = document.querySelector('#btn');
+        let txt = document.querySelector('#txt');
+        let area = document.querySelector('#area');
+
+        btn.onclick = function(){
+            // console.log('로또 생성 버튼 클릭')
+            //txt에 입력 된 숫자만큼 로또 번호 셋트를 표로 만들어서 area에 출력 - innerHTML
+            let lotto = [];
+            while(lotto.length < Number(txt.value)){
+                let arr = [];
+                while(arr.length < 6){
+                    let n = Math.floor(Math.random() * 45) + 1;
+                    if(arr.indexOf(n) == -1)
+                        arr.push(n);
+                    console.log(!(n in arr), n, arr)
+                }
+                console.log(arr);
+                lotto.push(arr);
+            }
+            console.log(lotto);
+            //-----------------------------------------
+            //  태그로 조립, reduce
+            let tag = '';
+            
+            tag += lotto.reduce((acc, cur, idx)=>`${acc}<tr>${cur.reduce((a, c, i) => `${a}<td>${c}</td>`,'')}</tr>`,'');
+            
+            area.innerHTML = `<table>${tag}</table>`;
+        }
     </script>
 </body>
 </html>
