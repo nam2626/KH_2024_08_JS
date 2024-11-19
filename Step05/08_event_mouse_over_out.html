@@ -15,7 +15,21 @@
         }
     </style>
     <script>
-      
+        window.onload = () => {
+            //div 태그 선택
+            let div = document.querySelector('#div');
+
+            // div에 onmouseover 이벤트가 발생시 테두리를 빨강색으로 지정
+            div.onmouseover = () => {
+                console.log('div에 마우스 올라감');
+                div.style.borderColor = 'red';
+            }
+            // div에 onmouseout 이벤트가 발생시 테두리를 검정색으로 지정
+            div.onmouseout = () => {
+                console.log('div에 마우스 벗어남');
+                div.style.borderColor = 'black';
+            }
+        }
     </script>
 </head>
 <body>
