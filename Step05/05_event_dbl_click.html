@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event</title>
     <script>
-     
+        window.onload = () => {
+            //h1 태그 선택, 더블클릭을 하면 h1 태그에 있는 내용을 경고창으로 출력 - ondblclick
+            let h1 = document.querySelector('h1');
+
+            h1.ondblclick = function(){
+                alert(this.innerHTML);
+                console.log(this);
+                //this의 의미
+                // 1. 화살표 함수 : 현재 객체가 아니라 현재 객체의 상위 객체를 의미함.
+                // 2. 일반 함수 : 현재 객체를 의미함
+            }
+            
+        }
     </script>
 </head>
 <body>
