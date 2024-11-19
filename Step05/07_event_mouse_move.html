@@ -10,7 +10,12 @@
         }
     </style>
     <script>
-      
+      window.onload = () => {
+        let body = document.querySelector('body');
+        body.onmousemove = (e) => {
+            console.log(e.clientX, e.clientY);
+        }
+      }
 
     </script>
 </head>
