@@ -15,7 +15,19 @@
         }
     </style>
     <script>
-        
+        window.onload = () => {
+            //div 태그 선택
+            let div = document.querySelector('#div');
+
+            div.onmouseenter = () => {
+                console.log('div에 마우스 올라감');
+                div.style.borderColor = 'red';
+            }
+            div.onmouseleave = () => {
+                console.log('div에 마우스 벗어남');
+                div.style.borderColor = 'black';
+            }
+        }
         
     </script>
 </head>
