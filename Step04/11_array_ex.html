@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배열, 객체, 연산</title>
     <script>
+       const arr1 = [1,2,3,4,5];
+       const arr2 = [6,7,8,9,10];
+
+       //Spread Operator, 스프레드 연산자
+       //   배열이나 객체를 하나씩 분리해서 표시하는 연산자
+       //   배열이나 객체를 합칠때 주로 사용
+       console.log(...arr1);
+       console.log(1,2,3,4,5);
+       console.log(arr1);
+       //배열 합치기
+       const arr3 = [...arr1,...arr2];
+       console.log(arr3);
+       //객체 생성
+       const obj1 = {
+            name : '홍길동',
+            age : 20,
+            printInfo : function(){
+                console.log(this.name,this.age);
+            }
+       };
+       //새 데이터 추가
+       obj1.gender = 'M';
+       console.log(obj1);
+       console.log(obj1.name, obj1.age);
+       obj1.printInfo();
+       //사는 도시, 연락처, 저장하고 있는 정보를 출하는 함수 -> printInfo
+       let obj2 = {
+        city : 'Seoul',
+        tel : '010-1111-2222',
+        printInfo : function(){
+            console.log(this.city, this.tel);
+        }
+       }
+       console.log(obj2);
+       obj2.printInfo();
+       //객체 합치기
+       const obj3 = {...obj1,...obj2};
+       console.log(obj3);
+       obj3.printInfo();
+       //-------------------------------------------
        
     </script>
 </head>
