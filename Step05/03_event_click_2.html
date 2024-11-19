@@ -23,9 +23,26 @@
 </head>
 
 <body>
-    
-    </script>
+        <div id="pop"></div>
+        <script>
+            //body 태그 선택
+            let body = document.querySelector('body');
+            //아이디 속성이 pop인 태그 선택
+            let pop = document.querySelector('#pop');
+            //body 태그에 클릭 이벤트 추가
+            //body 태그 클릭했을때 경고창 띄움
+            //이벤트 객체 : 이벤트가 발생 했을 때 해당 이벤트에 대한 정보
+            body.onclick = function(event){
+                // alert('body 클릭')
+                console.log(event);
+                //pop에 클릭한 마우스 좌표값 출력
 
+                //pop의 위치를 클릭한 좌표값으로 설정
+
+            }
+
+
+        </script>
 </body>
 
 </html>
