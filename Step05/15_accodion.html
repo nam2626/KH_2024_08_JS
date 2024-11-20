@@ -87,7 +87,11 @@
                 });
            })
            //all close 버튼 눌렀을때 모든 content를 0px로 바꾸는 작업 
-           
+           document.querySelector('#btn_close').onclick = () => {
+            document.querySelectorAll('.content').forEach(item => {
+                item.style.height = '0px';
+            })
+           }
        }
     </script>
 </head>
