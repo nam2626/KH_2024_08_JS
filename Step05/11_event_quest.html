@@ -8,6 +8,20 @@
       //이미지 태그를 클릭했을때 한번은 img/check.png로 표시
       //또 클릭을하면 img/non_check.png로 표시
       //이미지 경로 속성값 src
+      window.onload = () => {
+        let img = document.querySelector('img');
+        
+        let flag = false;
+        img.onclick = () => {
+          console.log(img.src)
+          flag = !flag;
+
+          if(flag)
+            img.src='img/check.png';
+          else
+            img.src='img/non_check.png';
+        }
+      }
     </script>
 </head>
 <body>
