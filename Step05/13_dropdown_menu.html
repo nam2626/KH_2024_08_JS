@@ -21,7 +21,7 @@
             display: flex;
             flex-flow: row nowrap;
         }
-        #main_menu li {
+        #main_menu li, .sub_menu {
             width: calc(100% / 5);
         }
         #main_menu a:link,#main_menu a:visited{
@@ -33,6 +33,22 @@
             text-decoration: none;
             color: black;
             box-sizing: border-box;
+            font-size: 20px;
+        }
+        #sub_menu_container{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .sub_menu a:link, .sub_menu a:visited{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding:16px 0px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: purple;
+            box-sizing: border-box;
+            font-size: 16px;
         }
     </style>
     <script>
