@@ -9,7 +9,31 @@
             margin:0;
             padding:0;
         }
-       
+        nav{
+            width: 1200px;
+            margin: 100px auto;
+            border: 1px solid black;
+        }
+        nav ul{
+            list-style-type: none;
+        }
+        #main_menu{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        #main_menu li {
+            width: calc(100% / 5);
+        }
+        #main_menu a:link,#main_menu a:visited{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding:20px 0px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: black;
+            box-sizing: border-box;
+        }
     </style>
     <script>
        
