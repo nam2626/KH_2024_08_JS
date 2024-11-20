@@ -79,10 +79,15 @@
                 item.addEventListener('click',function(){
                     console.log(this.nextElementSibling);
                     //2. 이미 보여주고 있으면 다시 숨김 처리
-                    this.nextElementSibling.style.height = this.nextElementSibling.scrollHeight + 'px';
+                    if(this.nextElementSibling.clientHeight == 0){
+                        this.nextElementSibling.style.height = this.nextElementSibling.scrollHeight + 'px';
+                    }else{
+                        this.nextElementSibling.style.height = 0+'px';
+                    }
                 });
            })
-            
+           //all close 버튼 눌렀을때 모든 content를 0px로 바꾸는 작업 
+           
        }
     </script>
 </head>
