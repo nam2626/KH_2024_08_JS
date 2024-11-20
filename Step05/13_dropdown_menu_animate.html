@@ -9,13 +9,122 @@
             margin:0;
             padding:0;
         }
-       
+        nav{
+            width: 1200px;
+            margin: 100px auto;
+            border: 1px solid black;
+        }
+        nav ul{
+            list-style-type: none;
+        }
+        #main_menu{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        #main_menu li, .sub_menu {
+            width: calc(100% / 5);
+        }
+        #main_menu a:link,#main_menu a:visited{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding:20px 0px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: black;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+        #sub_menu_container{
+            display: flex;
+            flex-flow: row nowrap;
+            height: 0px;
+            overflow: hidden;
+        }
+        .sub_menu a:link, .sub_menu a:visited{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding:16px 0px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: purple;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
     </style>
     <script>
-        
+       window.onload = () => {
+            let sub_menu_height = document.querySelector('#sub_menu_container').scrollHeight;
+            console.log(sub_menu_height);
+            let open_menu = {
+                height : sub_menu_height + 'px'
+            };
+            let close_menu = {
+                height : '0px'
+            };
+            let options = {
+                duration : 1000, 
+                iterations : 1,
+                fill : 'forwards'
+            }
+            //이벤트 처리
+            let nav = document.querySelector('nav');
+            nav.onmouseenter = () => {
+                document.querySelector('#sub_menu_container').animate(open_menu,options);
+            }
+            nav.onmouseleave = () => {
+                document.querySelector('#sub_menu_container').animate(close_menu,options);
+            }
+       }
     </script>
 </head>
 <body>
-   
+   <nav>
+        <ul id="main_menu">
+            <li><a href="">메뉴1</a></li>
+            <li><a href="">메뉴2</a></li>
+            <li><a href="">메뉴3</a></li>
+            <li><a href="">메뉴4</a></li>
+            <li><a href="">메뉴5</a></li>
+        </ul>
+        <div id="sub_menu_container">
+            <ul class="sub_menu">
+                <li><a href="">메뉴1-1</a></li>
+                <li><a href="">메뉴1-2</a></li>
+                <li><a href="">메뉴1-3</a></li>
+                <li><a href="">메뉴1-4</a></li>
+                <li><a href="">메뉴1-5</a></li>
+            </ul>
+            <ul class="sub_menu">
+                <li><a href="">메뉴2-1</a></li>
+                <li><a href="">메뉴2-2</a></li>
+                <li><a href="">메뉴2-3</a></li>
+                <li><a href="">메뉴2-4</a></li>
+                <li><a href="">메뉴2-5</a></li>
+            </ul>
+            <ul class="sub_menu">
+                <li><a href="">메뉴3-1</a></li>
+                <li><a href="">메뉴3-2</a></li>
+                <li><a href="">메뉴3-3</a></li>
+                <li><a href="">메뉴3-4</a></li>
+                <li><a href="">메뉴3-5</a></li>
+            </ul>
+            <ul class="sub_menu">
+                <li><a href="">메뉴4-1</a></li>
+                <li><a href="">메뉴4-2</a></li>
+                <li><a href="">메뉴4-3</a></li>
+                <li><a href="">메뉴4-4</a></li>
+                <li><a href="">메뉴4-5</a></li>
+            </ul>
+            <ul class="sub_menu">
+                <li><a href="">메뉴5-1</a></li>
+                <li><a href="">메뉴5-2</a></li>
+                <li><a href="">메뉴5-3</a></li>
+                <li><a href="">메뉴5-4</a></li>
+                <li><a href="">메뉴5-5</a></li>
+            </ul>
+        </div>
+   </nav>
 </body>
 </html>
