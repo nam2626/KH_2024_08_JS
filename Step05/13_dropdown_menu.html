@@ -38,6 +38,9 @@
         #sub_menu_container{
             display: flex;
             flex-flow: row nowrap;
+            height: 0px;
+            overflow: hidden;
+            transition: all 1s;
         }
         .sub_menu a:link, .sub_menu a:visited{
             display: inline-block;
@@ -52,7 +55,19 @@
         }
     </style>
     <script>
-       
+       window.onload = () => {
+            let sub_menu_height = document.querySelector('#sub_menu_container').scrollHeight;
+            console.log(sub_menu_height);
+
+            //이벤트 처리
+            let nav = document.querySelector('nav');
+            nav.onmouseenter = () => {
+                document.querySelector('#sub_menu_container').style.height = sub_menu_height + 'px';
+            }
+            nav.onmouseleave = () => {
+                document.querySelector('#sub_menu_container').style.height = '0px';
+            }
+       }
     </script>
 </head>
 <body>
