@@ -63,11 +63,27 @@
         div.content{
             height: 0px;
             overflow: hidden;
+            transition: all 0.5s;
         }
 
     </style>
     <script>
-       
+       window.onload = () => {
+           //선택된 태그의 다음 위치에 있는 태그 선택(동생요소 선택)
+           // console.log(document.querySelector('.title').nextElementSibling)
+           //선택된 태그의 이전 위치에 있는 태그 선택(형요소 선택)
+           // console.log(document.querySelector('.title').previousElementSibling)
+
+           //1. .title 클릭시 클릭된 .title 다음에 있는 .content를 본래 크기대로 보여줌
+           document.querySelectorAll('.title').forEach((item) => {
+                item.addEventListener('click',function(){
+                    console.log(this.nextElementSibling);
+                    //2. 이미 보여주고 있으면 다시 숨김 처리
+                    this.nextElementSibling.style.height = this.nextElementSibling.scrollHeight + 'px';
+                });
+           })
+            
+       }
     </script>
 </head>
 
