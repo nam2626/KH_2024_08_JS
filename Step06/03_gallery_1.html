@@ -9,7 +9,43 @@
             margin:0;
             padding: 0;
         }
-      
+        .thumnail_container{
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            border:1px solid black;
+            position: relative;
+
+        }
+        .main_img{
+            width: 400px;
+            height: 400px;
+        }
+        .thumnail{
+            width: 800px;
+            font-size: 0px;
+            /* border:1px solid black; */
+        }
+        .thumnail img{
+            width: 80px;
+            height: 80px;
+        }
+        .thumnail_bar{
+            width: 400px;
+            margin:0 auto;
+            border:1px solid red;
+            overflow: hidden;
+        }
+        .left_arrow, .right_arrow{
+            position: absolute;
+            bottom:6px;
+        }
+        .left_arrow{
+            left: 0px;
+        }
+        .right_arrow{
+            right: 0px;
+        }
     </style>
     <script>
      
@@ -31,9 +67,9 @@
                 <img src="img/9.webp" alt="">
                 <img src="img/10.webp" alt="">
             </div>
-            <button class="left_arrow"><img src="img/left_arrow.png" alt=""></button>
-            <button class="right_arrow"><img src="img/right_arrow.png" alt=""></button>
         </div>
+        <a class="left_arrow"><img src="img/left_arrow.png" alt=""></a>
+        <a class="right_arrow"><img src="img/right_arrow.png" alt=""></a>
 
    </div>
 </body>
