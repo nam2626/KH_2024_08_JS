@@ -60,11 +60,24 @@
                     document.querySelector('.main_img').src = e.target.src;
                 }
             });
+            let left_option = {
+                duration : 500,
+                iteration : 1,
+                fill : 'backwards'
+            };
+            let left_animation = {
+                marginLeft : '-80px'
+            };
+
             document.querySelector('.left_arrow').onclick = (e) => {
                 //thumnail 안에 있는 첫번째 이미지 선택
                 let img = document.querySelector('.thumnail').firstElementChild;
                 console.log(img);
-                
+                //애니메이션 진생
+                img.animate(left_animation,left_option).onfinish = (e) => {
+                    //애니메이션 진행 후 맨뒤로 이동
+                    document.querySelector('.thumnail').appendChild(img);
+                };
                 
             }
 
