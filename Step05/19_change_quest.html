@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event</title>
     <script>
-       
+       window.onload = () => {
+        document.querySelector('#host').addEventListener('change', (e) => {
+            console.log(e.target.value);
+            if(e.target.value == '4')
+                document.querySelector('#area').innerHTML = `<input type='text' id='custom_host'>`;
+            else
+                document.querySelector('#area').innerHTML = '';
+        });
+       }
     </script>
 </head>
 <body>
