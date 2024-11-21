@@ -1,20 +1,143 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gallery</title>
     <style>
-       
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .thumnail_container{
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            border:1px solid black;
+            position: relative;
+
+        }
+        .main_img{
+            width: 400px;
+            height: 400px;
+        }
+        .thumnail{
+            width: 800px;
+            font-size: 0px;
+            /* border:1px solid black; */
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .thumnail img{
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+        }
+
+        .thumnail_bar{
+            width: 400px;
+            margin:0 auto;
+            border:1px solid red;
+            overflow: hidden;
+        }
+        .left_arrow, .right_arrow{
+            position: absolute;
+            bottom:6px;
+        }
+        .left_arrow{
+            left: 0px;
+        }
+        .right_arrow{
+            right: 0px;
+        }
     </style>
     <script>
-      
+        //투명도 설정하는 함수
+        function opacityThumnailImage(img){
+            document.querySelectorAll('.thumnail img').forEach(obj => {
+                obj.style.opacity = obj == img ? 1 : 0.5;
+            })
+
+        }
+        
+        window.onload = () => {
+            //처음 투명도 설정
+            document.querySelectorAll('.thumnail img').forEach((obj,idx) => {
+                obj.style.opacity = idx == 0 ? 1 : 0.5;
+            })
+            document.querySelectorAll('.thumnail img').forEach((obj) => {
+                obj.onclick = (e) => {
+                    console.log(e.target.src);
+                    document.querySelector('.main_img').src = e.target.src;
+                    opacityThumnailImage(e.target);
+                    clearInterval(interval_id);
+                }
+            });
+            let left_option = {
+                duration : 500,
+                iteration : 1,
+                fill : 'backwards'
+            };
+            let left_animation = {
+                marginLeft : '-80px'
+            };
+            
+            document.querySelector('.left_arrow').onclick = (e) => {
+                //thumnail 안에 있는 첫번째 이미지 선택
+                let img = document.querySelector('.thumnail').firstElementChild;
+                console.log(img);
+                //애니메이션 진생
+                img.animate(left_animation,left_option).onfinish = (e) => {
+                    //애니메이션 진행 후 맨뒤로 이동
+                    document.querySelector('.thumnail').appendChild(img);
+                };
+                
+            }
+
+            document.querySelector('.right_arrow').onclick = (e) => {
+                //마지막 썸네일 선택
+                let img = document.querySelector('.thumnail').lastElementChild;
+                //여백을 미리 -80px 지정 marginLeft
+                img.style.marginLeft = '-80px';
+                //마지막 썸네일을 맨 앞에다가 붙임 prependChild
+                document.querySelector('.thumnail').prepend(img);
+                //애니메이션 재생 (marginLeft : 0px)
+                img.animate({marginLeft:'0px'},{
+                    duration : 500,
+                    iteration : 1,
+                    fill : 'backwards'
+                }).onfinish = () => {
+                    img.style.marginLeft='0px';
+                }
+            }      
+            //Interval 설정
+            let interval_id = setInterval(() => {
+                document.querySelector('.left_arrow').onclick();
+            }, 3000);
+        }
     </script>
 </head>
-
 <body>
-   
-</body>
+   <div class="thumnail_container">
+        <img src="img/1.webp" class="main_img">
+        <div class="thumnail_bar">
+            <ul class="thumnail">
+                <li><img src="img/1.webp" alt=""></li>
+                <li><img src="img/2.webp" alt=""></li>
+                <li><img src="img/3.webp" alt=""></li>
+                <li><img src="img/4.webp" alt=""></li>
+                <li><img src="img/5.webp" alt=""></li>
+                <li><img src="img/6.webp" alt=""></li>
+                <li><img src="img/7.webp" alt=""></li>
+                <li><img src="img/8.webp" alt=""></li>
+                <li><img src="img/9.webp" alt=""></li>
+                <li><img src="img/10.webp" alt=""></li>
+            </ul>
+        </div>
+        <a class="left_arrow"><img src="img/left_arrow.png" alt=""></a>
+        <a class="right_arrow"><img src="img/right_arrow.png" alt=""></a>
 
+   </div>
+</body>
 </html>
