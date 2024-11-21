@@ -199,6 +199,12 @@
             document.querySelector('#pass_chk').onkeyup = checkPassword;
             document.querySelector('#nick').onkeyup = checkNick;
             document.querySelector('#tel').onkeyup = checkTel;
+            document.querySelector('#frm').onsubmit = (e) => {
+                if(!(checkId() && checkPassword() && checkNick() && checkTel())){
+                    e.preventDefault();
+                    alert('잘못된 데이터가 있습니다.\n다시한번 입력하신 데이터를 확인해 보세요.')                    
+                }
+            }
         }
     </script>
 </head>
