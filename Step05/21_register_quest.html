@@ -164,10 +164,24 @@
             document.querySelector('.pass_result').classList.remove('false');
             return true;
         }
+        //닉네임 기능
+        //1. 닉네임은 20글자까지만 입력이 가능하게끔 처리
+        //2. 입력한 글자개수를 0/20 형식으로 sub_txt에 넣음
+        //3. 최소한 한글자는 입력 해야함
+        function checkNick(){
+            let nick = document.querySelector('#nick');
+            let reg = /^[.\S]{1,20}$/
+
+            nick.value = nick.value.substr(0,20);
+            nick.nextElementSibling.innerHTML = nick.value.length + '/20';
+
+            return reg.test(nick.value);
+        }
         window.onload = () => {
             document.querySelector('#id').onkeyup = checkId;
             document.querySelector('#pass').onkeyup = checkPassword;
             document.querySelector('#pass_chk').onkeyup = checkPassword;
+            document.querySelector('#nick').onkeyup = checkNick;
         }
     </script>
 </head>
