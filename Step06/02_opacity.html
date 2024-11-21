@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-      
+      //range를 선택해서 값이 바뀌었을때 img 태그의 opacity 값을 변경
+      //예> range 1 -> opacity 값은 0.1
+      window.onload = () => {
+        document.querySelector('#val').onchange = (e) => {
+            document.querySelector('img').style.opacity = e.target.value / 10;
+        };
+      }
     </script>
 </head>
 <body>
     <input type="range" id="val" min="0" max="10" value="10">
     <hr>
-    <img src="image/1.jpg">
+    <img src="img/1.webp">
 </body>
 </html>
