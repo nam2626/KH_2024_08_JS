@@ -67,8 +67,17 @@
                 if(idx * 80 + thumnailBarWidth == thumnailWidth)
                     return;
                 idx++;
-                document.querySelector('.thumnail').style.transform = `translateX(${-80*idx}px)`;
+                // document.querySelector('.thumnail').style.transform = `translateX(${-80*idx}px)`;
+                document.querySelector('.thumnail').style.marginLeft = `${-80*idx}px`;
             }
+            //오른쪽 버튼 클릭했을때      
+            document.querySelector('.right_arrow').onclick = (e) => {
+                if(idx == 0)
+                    return;
+                idx--;
+                // document.querySelector('.thumnail').style.transform = `translateX(${-80*idx}px)`;
+                document.querySelector('.thumnail').style.marginLeft = `${-80*idx}px`;
+            }      
         }
     </script>
 </head>
