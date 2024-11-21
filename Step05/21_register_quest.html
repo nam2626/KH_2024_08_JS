@@ -114,7 +114,30 @@
         }
     </style>
      <script>
-        
+        //아이디 값이 정상인지 체크하는 함수
+        //1. 글자수 8~20글자 사이
+        //2. 숫자와 알파벳 혼합(숫자와 알파벳이 반드시 1개씩은 들어가야됨)
+        //규칙에 만족하면 true 리턴, 만족하지 않으면 false를 리턴
+        function checkId(){
+            let id = document.querySelector('#id');
+
+            let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/
+            console.log(reg.test(id.value));
+
+            if(reg.test(id.value)){
+                document.querySelector('.id_result').innerHTML = '사용이 가능한 아이디 입니다.';
+                document.querySelector('.id_result').classList.add('true');
+                document.querySelector('.id_result').classList.remove('false');
+            }else{
+                document.querySelector('.id_result').innerHTML = '아이디는 8글자 이상 20자 이하로 알파벳 숫자 조합으로 입력하세요.';
+                document.querySelector('.id_result').classList.add('false');
+                document.querySelector('.id_result').classList.remove('true');
+            }
+
+        }
+        window.onload = () => {
+            document.querySelector('#id').onkeyup = checkId;
+        }
     </script>
 </head>
 
