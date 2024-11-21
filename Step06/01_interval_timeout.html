@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>timeout, interval</title>
     <script>
-        
+        window.onload = () => {
+            console.log(`${new Date().toLocaleString()}`);
+            //setTimeout : 일정시간 후에 한번 실행
+            let timeout_id = setTimeout(function(){
+                console.log(`5초 뒤에 실행 - ${new Date().toLocaleString()} - Timeout`);
+            },5000);
+            console.log(timeout_id, '<-- timeout id');
+
+            //setInterval : 지정한 시간마다 실행 -> 계속 반복
+            let interval_id = setInterval(function(){
+                console.log(`3초 마다 실행 - ${new Date().toLocaleString()} - Interval`);
+            },3000);
+            console.log(interval_id,'<-- interval id');
+
+            //inter, out 버튼 클릭이벤트 적용할 함수까지 처리
+            document.querySelector('#inter').onclick = (e) => {
+                clearInterval(interval_id);
+            }
+            document.querySelector('#out').onclick = (e) => {
+                clearTimeout(timeout_id);
+            }
+        }
     </script>
 </head>
 <body>
