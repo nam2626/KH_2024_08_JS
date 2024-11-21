@@ -82,7 +82,20 @@
             }
 
             document.querySelector('.right_arrow').onclick = (e) => {
-
+                //마지막 썸네일 선택
+                let img = document.querySelector('.thumnail').lastElementChild;
+                //여백을 미리 -80px 지정 marginLeft
+                img.style.marginLeft = '-80px';
+                //마지막 썸네일을 맨 앞에다가 붙임 prependChild
+                document.querySelector('.thumnail').prepend(img);
+                //애니메이션 재생 (marginLeft : 0px)
+                img.animate({marginLeft:'0px'},{
+                    duration : 500,
+                    iteration : 1,
+                    fill : 'backwards'
+                }).onfinish = () => {
+                    img.style.marginLeft='0px';
+                }
             }      
         }
     </script>
