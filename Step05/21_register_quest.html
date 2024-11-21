@@ -177,11 +177,28 @@
 
             return reg.test(nick.value);
         }
+
+        function checkTel(){
+            let tel = document.querySelector('#tel');
+            let reg = /^01([0|1|6|7|8|9])-\d{3,4}-\d{4}$/
+
+            if(reg.test(tel.value)){
+                tel.classList.add('true');
+                tel.classList.remove('false');
+                return true;
+            }
+            tel.classList.add('false');
+            tel.classList.remove('true');
+            return false;
+
+        }
+
         window.onload = () => {
             document.querySelector('#id').onkeyup = checkId;
             document.querySelector('#pass').onkeyup = checkPassword;
             document.querySelector('#pass_chk').onkeyup = checkPassword;
             document.querySelector('#nick').onkeyup = checkNick;
+            document.querySelector('#tel').onkeyup = checkTel;
         }
     </script>
 </head>
