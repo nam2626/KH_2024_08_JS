@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax</title>
     <script>
-     
+     window.onload = () => {
+        document.querySelector('button').onclick = () => {
+            //ajax를 이용해서 openweather의 날씨 정보를 읽어 옴
+
+            //1. url 셋팅
+            let url = 'https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=API_KEY';
+
+            //2. HttpRequest 객체 생성
+            let request = new XMLHttpRequest();
+
+            //3. URL 및 전송 방식 셋팅, 결과를 받을 데이터 형식 셋팅
+            request.open('GET',url);
+            request.responseType = 'json';
+            //4-1. 이벤트 처리 - 데이터 요청에 성공했을때 -> 받은 데이터 출력
+            request.addEventListener('load', (result) =>{
+                console.log(result);
+            } )
+            //4-2. 이벤트 처리 - 데이터 요청에 실패했을때 
+            request.addEventListener('error', (result) =>{
+                console.log(result);
+            } )
+            //5. 데이터 요청
+            request.send();
+
+
+        }
+     }
     </script>
 </head>
 <body>
