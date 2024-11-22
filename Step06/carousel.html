@@ -10,7 +10,7 @@
       padding: 0;
     }
     .container{
-      width: 1300px;
+      width: 1200px;
       margin: 0 auto;
       /* border:1px solid red; */
     }
@@ -31,6 +31,23 @@
     }
     .item_container img{
       width: 100%;
+    }
+    .left_arrow, .right_arrow{
+      width: 80px;
+      height: 80px;
+      background-color: transparent;
+      border:none;
+      background-size: 100% 100%;
+      position: absolute;
+      top:calc(50% - 40px);
+    }
+    .left_arrow{
+      background-image: url('img/left_arrow.png');
+      left: 0px;
+    }
+    .right_arrow{
+      background-image: url('img/right_arrow.png');
+      right: 0px;
     }
   </style>
 </head>
