@@ -7,7 +7,20 @@
   <script>
     window.onload = () => {
       document.querySelector('button').onclick = () => {
-        
+        let url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=KEY_VALUE&movieNm='+document.querySelector('#txt').value;
+
+        fetch(url).
+        then(result => {
+          return result.json();
+        }).then(json => {
+          console.log(json);
+          let tag = json.movieListResult.movieList.reduce((acc,cur) => {
+              return acc + `<h2>${cur.movieNm}</h2><p>개봉일 : ${cur.openDt} / 장르 : ${cur.repGenreNm} </p>`
+          },'');
+          document.querySelector('.result').innerHTML = tag;
+        }).catch(error=>{
+          console.log(error);
+        })
       }
     }
   </script>
