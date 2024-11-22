@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+    }
+    .container{
+      width: 1300px;
+      margin: 0 auto;
+      /* border:1px solid red; */
+    }
+    .carousel{
+      width: 100%;
+      border:1px solid black;
+      position: relative;
+    }
+    .item_container{
+      width: calc(100% * 4);
+      display: flex;
+      flex-flow: row nowrap;
+      list-style-type: none;
+    }
+    .item_container li{
+      width: 100%;
+      /* border: 1px solid gold; */
+    }
+    .item_container img{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="carousel">
+      <ul class="item_container">
+        <li><img src="img/main_1.webp" alt=""></li>
+        <li><img src="img/main_2.webp" alt=""></li>
+        <li><img src="img/main_3.webp" alt=""></li>
+        <li><img src="img/main_4.webp" alt=""></li>
+      </ul>
+      <button type="button" class="left_arrow"></button>
+      <button type="button" class="right_arrow"></button>
+      <ul class="indicator">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
