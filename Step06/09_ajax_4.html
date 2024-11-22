@@ -5,7 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax</title>
     <script>
-       
+       //08_ajax_3.html을 fetch로 변경
+       window.onload = () => {
+            document.querySelector('button').onclick = () => {
+                let url = 'http://nam3324.synology.me:32813/search/blog?query=' + document.querySelector('#txt').value;
+                
+                fetch(url)
+                .then((result) => {
+                    //호출 결과를 받는 부분
+                    console.log(result);
+                    if(!result.ok)
+                        throw new Error(`HTTP error : ${result.status}`);
+                    return result.json();
+                }).then((json) => {
+                    console.log(json);
+                    //결과 출력 부분
+                    let tag = '';
+                    json.items.forEach(obj => {
+                        tag += `<h3><a href='${obj.link}'>${obj.title}</a></h3>`;
+                        tag += `<p>${obj.description}</p>`;
+                        
+                    }); 
+                    document.querySelector('.result').innerHTML = tag;
+                })
+                .catch((error) => {
+                    //요청에 실패 했을때 처리
+                    console.log(error);
+                });
+            }
+        }
     </script>
 </head>
 <body>
