@@ -10,7 +10,7 @@
       padding: 0;
     }
     .container{
-      width: 1200px;
+      width: 1300px;
       margin: 0 auto;
       /* border:1px solid red; */
     }
@@ -72,6 +72,32 @@
       box-shadow: 0px 0px 10px 10px white; 
     }
   </style>
+  <script>
+    window.onload = () => {
+      const left_arrow = document.querySelector('.left_arrow');
+      const right_arrow = document.querySelector('.right_arrow');
+      const item_container = document.querySelector('.item_container');
+      const carousel = document.querySelector('.carousel');
+      const carousel_width = carousel.clientWidth;
+      console.log(carousel.clientWidth);
+
+      let left_animation = {
+        marginLeft : `-${carousel_width}px`
+      }
+      let animate_options = {
+        duration : 1000,
+        fill : 'backwards',
+        iterations : 1,
+        easing : 'linear'
+      }
+      left_arrow.onclick = () => {
+        //item_container 안에 있는 첫번째 아이템을 왼쪽으로 이동
+        item_container.firstElementChild.animate(left_animation,animate_options).onfinish = () => {
+          item_container.append(item_container.firstElementChild);
+        }
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="container">
