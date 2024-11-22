@@ -6,7 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax</title>
     <script>
-      
+        window.onload = () => {
+            document.querySelector('button').onclick = () => {
+                let url = 'https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=APP_KEY&units=metric';
+                
+                fetch(url)
+                .then((result) => {
+                    //호출 결과를 받는 부분
+                    console.log(result);
+                    if(!result.ok)
+                        throw new Error(`HTTP error : ${result.status}`);
+                    return result.json();
+                }).then((json) => {
+                    console.log(json);
+                    //결과 출력 부분
+                    let tag = '';
+                //도시명
+                tag += `<p>${json.name}</p>`;
+                //현재 날씨
+                tag += `<p>${json.weather[0].main}</p>`;
+                //최고온도
+                tag += `<p>${json.main.temp_max}</p>`;
+                //최저온도
+                tag += `<p>${json.main.temp_min}</p>`;
+                //현재온도
+                tag += `<p>${json.main.temp}</p>`;
+                //바람세기
+                tag += `<p>${json.wind.speed}</p>`;
+                //바람방향
+                tag += `<p>바람 방향 : <span class='deg'>↑</span></p>`;
+                document.querySelector('.result').innerHTML = tag;
+                document.querySelector('.deg').style.transform = `rotateZ(${json.wind.deg}deg)`;
+                document.querySelector('.deg').style.display = 'inline-block';
+                })
+                .catch((error) => {
+                    //요청에 실패 했을때 처리
+                    console.log(error);
+                });
+            }
+        }
     </script>
 </head>
 
