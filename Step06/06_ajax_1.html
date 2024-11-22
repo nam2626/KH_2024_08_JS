@@ -22,8 +22,27 @@
             //4-1. 이벤트 처리 - 데이터 요청에 성공했을때 -> 받은 데이터 출력
             request.addEventListener('load', (result) =>{
                 console.log(result);
-                console.log(result.currentTarget.response.main.temp - 273.15);
-                //현재 온도를 섭씨로 바꾸어서 출력
+                console.log(result.currentTarget.response.main.temp);
+                let json = result.currentTarget.response;
+                //result에 아래 내용들 뽑아서 출력
+                let tag = '';
+                //도시명
+                tag += `<p>${json.name}</p>`;
+                //현재 날씨
+                tag += `<p>${json.weather[0].main}</p>`;
+                //최고온도
+                tag += `<p>${json.main.temp_max}</p>`;
+                //최저온도
+                tag += `<p>${json.main.temp_min}</p>`;
+                //현재온도
+                tag += `<p>${json.main.temp}</p>`;
+                //바람세기
+                tag += `<p>${json.wind.speed}</p>`;
+                //바람방향
+                tag += `<p>바람 방향 : <span class='deg'>↑</span></p>`;
+                document.querySelector('.result').innerHTML = tag;
+                document.querySelector('.deg').style.transform = `rotateZ(${json.wind.deg}deg)`;
+                document.querySelector('.deg').style.display = 'inline-block';
             } )
             //4-2. 이벤트 처리 - 데이터 요청에 실패했을때 
             request.addEventListener('error', (result) =>{
