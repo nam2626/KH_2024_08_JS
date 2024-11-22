@@ -69,6 +69,11 @@
     }
   </style>
   <script>
+    function settingIndicator(idx){
+      document.querySelectorAll('.indicator li').forEach((obj, index) => {
+          obj.classList.toggle('active', idx === index);
+        })
+    }
     window.onload = () => {
       const left_arrow = document.querySelector('.left_arrow');
       const right_arrow = document.querySelector('.right_arrow');
@@ -90,16 +95,32 @@
         iterations : 1,
         easing : 'linear'
       }
+
+      let idx = 0;
+      let flag = false;
       left_arrow.onclick = () => {
+        //애니메이션 실행 중이면 실행 안되게끔 처리
+        if(flag) return;
+        flag = true;
+        //인디케이터 설정
+        idx = ++idx % 4;
+        settingIndicator(idx);
         //item_container 안에 있는 첫번째 아이템을 왼쪽으로 이동
         item_container.firstElementChild.animate(left_animation,animate_options).onfinish = () => {
           item_container.append(item_container.firstElementChild);
+          flag = false;
         }
       };
       let right_animation = {
         marginLeft : '0px'
       };
       right_arrow.onclick = () => {
+        if(flag) return;
+        flag = true;
+        idx--;
+        if(idx < 0) idx = 3;
+        settingIndicator(idx);
+
         // item_container 안에 있는 마지막 아이템을 맨 앞으로 이동
         item_container.prepend(item_container.lastElementChild);
         // 미리 margin-left -1300px로 지정
@@ -108,6 +129,7 @@
         item_container.firstElementChild.animate(right_animation,animate_options).onfinish = () =>{
           // margin-left도 다시 0px로 변경
           item_container.firstElementChild.style.marginLeft = `0px`;
+          flag = false;
         }
       }
     }
