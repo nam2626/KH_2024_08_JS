@@ -6,7 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-   
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script>
+        $(() => {
+            //p태그 전부 선택, 배경색을 파랑색, 글자색 빨강색으로 변경
+            // document.querySelectorAll('p').forEach(obj =>{
+            //     obj.style.backgroundColor = 'blue';
+            //     obj.style.color = 'red';
+            // });
+            //jQuery에서 태그 선택하는 방법 : $('선택자')
+            // $('p').css('background-color','blue').css('color','yellow');
+            $('p').css({'background-color':'blue','color':'yellow'});
+            //h2 선택 - 글자색 파랑색으로 변경
+            $('h2').css('color','blue');
+            console.log($('h2').css('color'));
+        });
+    </script>
 </head>
 <body>
     <h2>제목</h2>
