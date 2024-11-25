@@ -9,7 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-          
+          console.log($("#ul1 li").length);
+          $("#ul1 li").each(function(idx,obj){
+            console.log(`${idx} - ${$(obj).html()}`);
+          });
+          $("#ul1 li").each(function(idx){
+            console.log(`${idx} - ${$(this).html()}`);
+          });
         });
     </script>
 </head>
