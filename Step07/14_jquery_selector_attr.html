@@ -5,12 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-   
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //속성 선택자
+            //해당 속성이 있는 경우
+            $('a[download]').css('background-color','coral');
+            //일치하는 속성값이 있는 경우
+            $('a[target=_blank]').css('background-color','yellow');
+            //시작하는 속성값
+            $('a[href^="http://"]').css('text-decoration','none');
+            //끝나는 속성값
+            $('a[href$=webp]').css('color','red');
+            //포함하는 속성값
+            $('a[href*=lib]').css('border','1px solid red')
+        });
+    </script>
 </head>
 <body>
     <a href="http://www.google.co.kr" target="_blank">구글로 이동</a><br>
-    <a href="http://www.google.co.kr" target="_self">구글로 이동</a><br>
-    <a href="/resource/img/grill1.jpg" download>첨부파일 다운로드</a><br>
-    <a href="/resource/lib/jquery-3.6.0.min.js" download>제이쿼리 다운로드</a>
+    <a href="https://www.google.co.kr" target="_self">구글로 이동</a><br>
+    <a href="../Step06/img/1.webp" download>첨부파일 다운로드</a><br>
+    <a href="lib/jquery-3.7.1.min.js" download>제이쿼리 다운로드</a>
 </body>
 </html>
