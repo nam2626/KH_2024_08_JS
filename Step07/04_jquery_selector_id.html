@@ -5,7 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-   
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //로그인 버튼 선택
+            $('button').click(function(e){
+                console.log(e.target);
+                console.log($('#id').val());
+                //아이디, 암호에 입력된 값을 #result 영역에 출력
+                $("#result").html(`${$('#id').val()},${$('#password').val()}`);
+            });
+            $('#id').on('keyup',function(e){
+                console.log(e.target.value);
+            });
+        })
+    </script>
 </head>
 <body>
     <input type="text" id="id"> <input type="password" id="password">
