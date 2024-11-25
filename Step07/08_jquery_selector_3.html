@@ -9,9 +9,10 @@
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script>
         $(function(){
-            //선택한 요소의 동생요소 선택
-            //클래스가 txt 다음 위치에 있는 p 태그를 선택, 배경색을 노랑색으로 변경
-            $('.txt + p').css('background-color','yellow');
+            $('.txt3').prevUntil().css('text-decoration','underline');
+            $('.txt3').prevUntil('.title').css('color','orange');
+            $('.txt3').nextUntil().css('color', 'red');
+            $('.txt3').nextUntil('.txt6').css('font-weight', 'bold');
         }); 
     </script>
 </head>
