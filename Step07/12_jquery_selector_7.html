@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-    
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //인덱스 번호가 2인 요소를 선택, 전체 요소중 인덱스가 2번
+            $('ul li').eq(2).css('background-color','orange');
+            $('ul li:gt(2)').css('color','red');
+            $('ul li:lt(2)').css('color','blue');
+        });
+    </script>
 </head>
 <body>
     <ul>
