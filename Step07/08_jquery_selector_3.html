@@ -6,7 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-   
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //선택한 요소의 동생요소 선택
+            //클래스가 txt 다음 위치에 있는 p 태그를 선택, 배경색을 노랑색으로 변경
+            $('.txt + p').css('background-color','yellow');
+        }); 
+    </script>
 </head>
 
 <body>
