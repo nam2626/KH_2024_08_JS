@@ -9,7 +9,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-           
+            $('button').click(function(){
+                var n1 = Number($('#n1').val());
+                var n2 = Number($('#n2').val());
+                var op = $('#op').val();
+                console.log(n1,n2,op)
+                var result = 0;
+                if(op == '+')
+                    result = n1 + n2;
+                else if(op == '-')
+                    result = n1 - n2;
+                else if(op == '*')
+                    result = n1 * n2;
+                else
+                    result = n1 / n2;
+                $('#result').val(result);
+                $('#history').append(`<p>${n1} ${op} ${n2} = ${result} ${new Date().toLocaleString()}</p>`);
+            });
         });
     </script>
 </head>

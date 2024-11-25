@@ -19,7 +19,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-           
+           /* $("#box1").mouseover(function(){
+                $(this).css('background-color','red');
+            });
+            $("#box1").mouseout(function(){
+                $(this).css('background-color','transparent');
+            }); */
+            $("#box1").hover(function(){
+                $(this).css('background-color','red');
+            },function(){
+                $(this).css('background-color','transparent');
+            });
+            //box2, mouseenter, mouseleave- 둥근테두리 150px
+            $('#box2').mouseenter(function(){
+                $(this).css('border-radius','150px');
+            });
+            $('#box2').mouseleave(function(){
+                $(this).css('border-radius','0px');
+            });
         });
     </script>
 </head>

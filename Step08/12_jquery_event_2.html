@@ -9,7 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-        
+            //이벤트 바인딩, 여러개 이벤트 지정할 수 있음
+            $('p').on('click mouseover',function(){
+                alert($('#container').html());
+            });
+            $('button').click(function(){
+                $('p').off('mouseover');
+            });
         });
     </script>
 </head>

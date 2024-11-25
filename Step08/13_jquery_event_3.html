@@ -8,7 +8,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function(){
-            
+            $('#frm').submit(function(e){
+                var flag = false;
+                $('input').each(function(i,obj){
+                    if($(obj).val().length == 0)
+                        flag = true;
+                });
+                if(flag){
+                    alert('아이디와 비밀번호를 모두 입력하세요');
+                    e.preventDefault();
+                }
+
+            });
          
         });
     </script>
